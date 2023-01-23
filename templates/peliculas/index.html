@@ -1,0 +1,26 @@
+{%include 'header.html'%}
+
+   <table class="table table-light">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pelicula in peliculas %}
+        <tr>
+            <td>{{pelicula[0]}}</td>
+            <td><img class="img-thumbnail" width="110px" src="uploads/{{pelicula[2]}}" alt=""></td>
+            <td>{{pelicula[1]}}</td>
+            <td>{{pelicula[3]}}</td>
+            <td><a class="btn btn-warning"  href="/edit/{{pelicula[0]}}">Edit</a> | <a class="btn btn-danger" href="/destroy/{{pelicula[0]}}">Borrar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+   </table>
+   <a class="btn btn-success"  href="{{url_for('create')}}">Nueva Pelicula</a>
+{%include 'footer.html'%}
